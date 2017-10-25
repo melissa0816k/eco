@@ -1,1 +1,457 @@
+<!DOCTYPE html>
+<html>
 
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  
+    <title>homework5</title>
+    <!-- Use echarts.js -->
+    <script src="echarts.min.js"></script>
+</head>
+
+<body>
+<script>
+window.alert("Welcome to mypage!");
+</script>
+    <div class="topic">
+        <h2 style="font-family:verdana"> HK's aging population continues to grow, with world's longest life expectancy </h2>
+        <h3>Homework 5</h3>
+        <h5> Presented by Melissa KO  <a href="https://melissa0816k.github.io/">
+        <span class="glyphicon glyphicon-home"></span></h5>
+    </div>
+    <br>
+    <br>
+<div class="container-fluid">
+<div class="row">
+  <div class="col-md-7">
+    <div class="image_caption">
+        <a href ="http://www.scmp.com/news/hong-kong/health-environment/article/1995947/hong-kong-women-and-men-enjoy-worlds-longest-life">
+        <img src="http://cdn3.i-scmp.com/sites/default/files/styles/980x551/public/images/methode/2016/01/31/0daba2a0-c804-11e5-bbaf-0bb83de8b470_1280x720.jpg?itok=PZQUGBWN" width="730" height="400">
+        </a>
+        <br>
+        Source from SCMP. 
+    </div>
+  </div>
+  <div class="col-md-4 col-sm-offset-1">
+    <div class="content" style="font-size:18px">
+        <br>
+        <p>Japanese womenhad the world’s longest average life expectancy since 1985; however, this changed
+        in 2011.The average lifespan for women in Hong Kong is 87.32 years, and local men on average can 
+        expect to live to 81.24.</p> 
+        <p>Japanese women took second place at 87.05, while Icelandic and Swiss men 
+        shared the second position in the men’s category at 81 years.</p>
+    </div>
+  </div>
+    <br>
+</div>
+</div>
+    <br>
+
+<div class="container-fluid">
+<div class="row">    
+<div class="col-md-6 col-sm-offset-1">
+    <br>
+    <div id="mybar01" style="width: 600px;height:400px;"></div>
+    <script>
+option = {
+    title : {
+        text: 'Country Level Breakdown of Employment in 2016 ',
+        subtext: 'International Renewable Energy Agency ',
+        x:'center'
+    },
+    tooltip: {
+        trigger: 'item',
+        formatter: "{a} <br/>{b}: {c} ({d}%)"
+    },
+    legend: {
+        orient: 'vertical',
+        x: 'left',
+        data:['China','India','Brazil','Russian Federation','Vietnam','Others']
+    },
+    series: [
+        {
+            name:'Country',
+            type:'pie',
+            radius: ['70%', '50%'],
+            avoidLabelOverlap: false,
+            label: {
+                normal: {
+                    show: false,
+                    position: 'center'
+                },
+                emphasis: {
+                    show: true,
+                    textStyle: {
+                        fontSize: '15',
+                        fontWeight: 'bold'
+                    }
+                }
+            },
+            labelLine: {
+                normal: {
+                    show: false
+                }
+            },
+            data:[
+                {value:21, name:'China'},
+                {value:16, name:'India'},
+                {value:12, name:'Brazil'},
+                {value:8, name:'Russian Federation'},
+                {value:7, name:'Vietnam'},
+                {value:38, name:'Others'},
+            ]
+        }
+    ]
+};
+
+// Use the option to display chart
+        var myChart1 = echarts.init(document.getElementById('mybar01'));
+        myChart1.setOption(option);
+    </script> 
+</div>
+    <div class="col-md-4 col-sm-offset-1" style="font-size:16px">
+        <br>
+        <br>
+        <p>Hong Kong is facing the challenge posed by rapidly aging population.
+        It is appreciated that Hongkongers can have such high life expectancy but 
+        we should consider the life quality.</p> 
+        <p>Both female and male have <bold>higher</bold> life expectancy than before whereas low infant and maternal mortality rates continue.
+        If aging population is growing with low birth rate, it will not only place a heavy 
+        financial burden on the whole community, but also aggravate the social structure.</p>
+    </div>
+</div>
+</div>
+<br>
+<div class="container-fluid">
+<div class="row">
+<div class="col-md-4 col-sm-offset-1" style="font-size:16px">
+        <br>
+        <br>
+        <p>The society get richer but surprisingly fewer babies are born, according to the data.</p> 
+        <br>
+        <p>The birth rate in Hong Kong has dropped signicantly from 35.0 per 1,000 population in 1961
+        to 8.2 per 1,000 population in 2015. Tracing Hong Kong 's history back to 1970s, we could 
+        find that the government worked hard to persuade citizens against having too many childen, 
+        for example, doing propaganda "two is enough". </p>
+        <br>
+        <p><a href="http://www.famplan.org.hk/fpahk/en/template1.asp?style=template1.asp&content=about/history.asp">The Family Planning Association of Hong Kong</a></p>
+</div>
+<div class="col-md-6 col-sm-offset-1">
+<div id="mybar" style="width: 600px;height:400px;"></div>
+<script>
+  option = {
+    title: {
+        text: 'NO. of Known Births'
+    },
+    tooltip: {
+        trigger: 'axis'
+    },
+    legend: {
+        data :['female','male'],
+    },
+    toolbox: {
+        show: true,
+        feature: {
+            dataZoom: {
+                yAxisIndex: 'none'
+            },
+            dataView: {readOnly: false},
+            magicType: {type: ['line', 'bar']},
+            restore: {},
+            saveAsImage: {}
+        }
+    },
+    xAxis:  {
+        type: 'category',
+        boundaryGap: false,
+        data: [1961,1962,1963,1964,1965,1966,1967,1968,1969,1970,1971,1972,1973,1974,1975,1976,1977,1978,1979,1980,1981,1982,1983,1984,1985,1986,1987,1988,1989,1990,1991,1992,1993,1994,1995,1996,1997,1998,1999,2000,2001,2002,2003,2004,2005,2006,2007,2008,2009,2010,2011,2012,2013,2014,2015]
+    },
+    yAxis : [
+        {
+            type : 'value'
+        }
+    ],
+    series: [
+        {
+            name:'female',
+            type:'line',
+            data:[53525, 54342 , 55486 , 52237 ,  49081 ,  44343 ,  42547,  40077,  40002, 38398, 38693,  38868,  39835,  40614,  38255,  37731,  38689,  39184,  39623,  41189,  42141,  41769,  40457,  37354,  36830,  34703,  33979,  36366,  33806,  32616,  33084,  34249, 33946,  34368,  33071,  30627,  28370,  25259,  24569,  25854,  23059,  23254,  22559,  23969,  27218,  31031,  33427,  36894,  38129,  41218,  44165,  42781,  27278,  30043,  31218],
+            markPoint: {
+                data: [
+                    {type: 'min', name: '最小值'}
+                ]
+            },
+            markLine: {
+                data: [
+                    [{
+                            "coord": [42, 22559]
+                        }, {
+                            "coord": [54, 31218]
+                        }]
+                ]
+            }
+        },
+        {
+            name:'male',
+            type:'line',
+            data:[ 57361, 58161,  59064 , 55388,  52029,  47489, 45668,  42608,  42480,  40734,  41096,  41476,  42417,  42967,  41535,  40780,  41333,  41773,  42352,  44101,  44610,  44351,  42836,  39943,  39296,  36917,  35979,  39046,  35815 ,35115 , 35197, 36700, 36505, 37278, 35566,  32664,  30880,  30880,  27718,  26712,  28280,  25160,  24955,  24406, 25827,  29880,  34595,  37448,  41928,  43966,  47366, 51286, 48777,  29806,  32262,  28660 ],
+        markPoint: {
+                data: [
+                    {type: 'max', name: '最大值'}
+                ]
+            },
+        }
+    ]
+};
+     // Use the option to display chart
+        var myChart2 = echarts.init(document.getElementById('mybar'));
+        myChart2.setOption(option);
+</script>
+</div>
+</div>
+</div>
+
+<div class="container-fluid">
+<div class="row">  
+<div class="col-md-6 col-sm-offset-1">
+<br>
+<div id="mybar02" style="width: 600px;height:400px;"></div>
+<script>
+option = {
+    title: {
+        text: 'Distribution of Age & Sex Group in 2016'
+    },
+    tooltip: {
+        trigger: 'item',
+        formatter: "{a} <br/>{b}: {c} ({d}%)"
+    },
+    legend: {
+        orient: 'vertical',
+        x: 'right',
+        data:['aged 0-9','aged 10-19','aged 20-29','aged 30-39','aged 40-49','aged 50-59','aged 60-69','aged 70-79','> aged 80']
+    },
+    series: [
+        {
+            name:'Distribution of Sex',
+            type:'pie',
+            selectedMode: 'single',
+            radius: [0, '30%'],
+            label: {
+                normal: {
+                    position: 'inner'
+                }
+            },
+            labelLine: {
+                normal: {
+                    show: false
+                }
+            },
+            data:[
+                {value:3986100, name:'Female'},
+                {value:3388800, name:'Male'}
+            ]
+        },
+        {
+            name:'Distribution of Age Group',
+            type:'pie',
+            radius: ['40%', '55%'],
+            data:[
+                {value:577600, name:'aged 0-9'},
+                {value:590000, name:'aged 10-19'},
+                {value:943500, name:'aged 20-29'},
+                {value:1153800, name:'aged 30-39'},
+                {value:1143700, name:'aged 40-49'},
+                {value:1262400, name:'aged 50-59', selected:true},
+                {value:914300, name:'aged 60-69'},
+                {value:436000, name:'aged 70-79'},
+                {value:353600, name:'> aged 80'}
+            ]
+        }
+    ]
+};
+// Use the option to display chart
+        var myChart3 = echarts.init(document.getElementById('mybar02'));
+        myChart3.setOption(option);
+</script>
+</div>
+<div class="col-md-4 col-sm-offset-1" style="font-size:16px">
+        <br>
+        <br>
+<p>According to government statistics, the proportion of our population aged 65 and above is slated to double,
+   to 31 per cent by 2036. In terms of longer life expectancy in Hong Kong, Hong Kong government should be 
+   ready to face the challenge of medical care and relevant medical equipments to cope with the elderly's chronic
+   diseases. Apart from that, Hong Kong also may need to encounter the signicant drop in workforce participation 
+   due to the aging population.</p>
+</div>
+</div>
+</div>
+<br>
+<br>
+<br>
+<div class="container-fluid">
+<div class="row">  
+<div class="col-md-3 col-sm-offset-1" style="font-size:14px">
+<p style="font-family: sans-serif"><em>Our Environment</em></p>
+<br>
+<p>The government has been providing a lot of benefits for the elderly by using public treasury, and also 
+   continuously instilling proper, respectful attitudes in citizens when interacting with the elderly.</p>
+<br>
+<p>It is of paramount importance to make an age-friendly city and create a harmonious environment 
+   so that everyone of different ages can work together enjoyably. Community support is always needed to 
+   motivate the elderly to get out of their confort zone and embrace the retirement lives becasue some people 
+   may not adapt to it.</p>
+</div>
+<div class="col-md-3 col-sm-offset-1" style="font-size:14px">
+<p style="font-family: sans-serif"><em>Challenges</em></p>
+<br>
+<p>As mentioned, the number of people aged 65 or above will be significantly increasing. Besides
+    Hong Kong, is facing an acute challenge in poverty alleviation due to its rapidly ageing population
+    and increasing number of smaller households. </p>
+<br>
+<p>The needs of an older population, coupled with fewer workers to pay taxes, will put a tremendous strain
+    on Hong Kong’s public finances and facilities, including already deteriorating hospitals.</p>
+</div>   
+<div class="col-md-3 col-sm-offset-1" style="font-size:14px">
+<p style="font-family: sans-serif"><em>Suggestions</em></p>
+<br>
+<p>Among the priorities of the community is to provide flexible workplaces for the elderly to maximise 
+    experience without affecting young people's upward mobility., for example, 
+  to cooperate with successful and substainable companies to set up new businesses to hire old people.</p>
+<br>
+<p>Moreover, the elderly should be encouraged to learn and institutions can provide some 
+   elderly-friendly programmes so that the older generation can make good use of their time, widen their knowledge 
+   base and make some friends in classes.</p>
+</div>
+</div>
+</div>
+<br>
+<br>
+
+<div class="container-fluid">
+<div class="row">  
+<div class="col-md-9 col-sm-offset-3">
+<div id="mybar03" style="width: 750px;height:530px;"></div>
+<script>
+    var data = [
+    [[28604,77,17096869,'Australia',1990],[31163,77.4,27662440,'Canada',1990],[1516,68,1154605773,'China',1990],[13670,74.7,10582082,'Cuba',1990],[28599,75,4986705,'Finland',1990],[29476,77.1,56943299,'France',1990],[31476,75.4,78958237,'Germany',1990],[28666,78.1,254830,'Iceland',1990],[1777,57.7,870601776,'India',1990],[29550,79.1,122249285,'Japan',1990],[2076,67.9,20194354,'North Korea',1990],[12087,72,42972254,'South Korea',1990],[24021,75.4,3397534,'New Zealand',1990],[43296,76.8,4240375,'Norway',1990],[10088,70.8,38195258,'Poland',1990],[19349,69.6,147568552,'Russia',1990],[10670,67.3,53994605,'Turkey',1990],[26424,75.7,57110117,'United Kingdom',1990],[37062,75.4,252847810,'United States',1990]],
+    [[44056,81.8,23968973,'Australia',2015],[43294,81.7,35939927,'Canada',2015],[13334,76.9,1376048943,'China',2015],[21291,78.5,11389562,'Cuba',2015],[38923,80.8,5503457,'Finland',2015],[37599,81.9,64395345,'France',2015],[44053,81.1,80688545,'Germany',2015],[42182,82.8,329425,'Iceland',2015],[5903,66.8,1311050527,'India',2015],[36162,83.5,126573481,'Japan',2015],[1390,71.4,25155317,'North Korea',2015],[34644,80.7,50293439,'South Korea',2015],[34186,80.6,4528526,'New Zealand',2015],[64304,81.6,5210967,'Norway',2015],[24787,77.3,38611794,'Poland',2015],[23038,73.13,143456918,'Russia',2015],[19360,76.5,78665830,'Turkey',2015],[38225,81.4,64715810,'United Kingdom',2015],[53354,79.1,321773631,'United States',2015]]
+];
+option = {
+    backgroundColor: new echarts.graphic.RadialGradient(0.3, 0.3, 0.8, [{
+        offset: 0,
+        color: '#FFFFFF'
+    }, {
+        offset: 1,
+        color: '#FFFFFF'
+    }]),
+    title: {
+        text: 'Life Expectancy & GDP in 1990 & 2015'
+    },
+    legend: {
+        right: 10,
+        data: ['1990', '2015']
+    },
+    xAxis: {
+        splitLine: {
+            lineStyle: {
+                type: 'dashed'
+            }
+        }
+    },
+    yAxis: {
+        splitLine: {
+            lineStyle: {
+                type: 'dashed'
+            }
+        },
+        scale: true
+    },
+    series: [{
+        name: '1990',
+        data: data[0],
+        type: 'scatter',
+        symbolSize: function (data) {
+            return Math.sqrt(data[2]) / 5e2;
+        },
+        label: {
+            emphasis: {
+                show: true,
+                formatter: function (param) {
+                    return param.data[3];
+                },
+                position: 'top'
+            }
+        },
+        itemStyle: {
+            normal: {
+                shadowBlur: 10,
+                shadowColor: 'rgba(120, 36, 50, 0.5)',
+                shadowOffsetY: 5,
+                color: new echarts.graphic.RadialGradient(0.4, 0.3, 1, [{
+                    offset: 0,
+                    color: 'rgb(251, 118, 123)'
+                }, {
+                    offset: 1,
+                    color: 'rgb(204, 46, 72)'
+                }])
+            }
+        }
+    }, {
+        name: '2015',
+        data: data[1],
+        type: 'scatter',
+        symbolSize: function (data) {
+            return Math.sqrt(data[2]) / 5e2;
+        },
+        label: {
+            emphasis: {
+                show: true,
+                formatter: function (param) {
+                    return param.data[3];
+                },
+                position: 'top'
+            }
+        },
+        itemStyle: {
+            normal: {
+                shadowBlur: 10,
+                shadowColor: 'rgba(25, 100, 150, 0.5)',
+                shadowOffsetY: 5,
+                color: new echarts.graphic.RadialGradient(0.4, 0.3, 1, [{
+                    offset: 0,
+                    color: 'rgb(129, 227, 238)'
+                }, {
+                    offset: 1,
+                    color: 'rgb(25, 183, 207)'
+                }])
+            }
+        }
+    }]
+};
+// Use the option to display chart
+        var myChart4 = echarts.init(document.getElementById('mybar03'));
+        myChart4.setOption(option);
+</script>
+</div>
+</div>
+</div>
+        
+<footer>
+    <br>
+    Reference: 
+    <a href="https://data.gov.hk/tc/"> Data.gov.hk </a>
+</footer>
+   <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-96536728-1', 'auto');
+  ga('send', 'pageview');
+   </script>
+</body>
+</html>
